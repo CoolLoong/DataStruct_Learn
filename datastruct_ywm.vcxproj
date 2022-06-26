@@ -127,9 +127,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="link_list.h" />
     <ClInclude Include="seq_list.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="link_list.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="seq_list.cpp" />
   </ItemGroup>

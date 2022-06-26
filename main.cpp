@@ -1,7 +1,8 @@
 #include "seq_list.h"
+#include "link_list.h"
 using namespace std;
 int main() {
-	SqList seq_list;
+	/*SqList seq_list;
 	int next, pre,result;
 	cout << "º¯Êı×´Ì¬" << InitList(seq_list) << endl;
 	for (int j = 1; j <= 10; ++j) {
@@ -23,5 +24,13 @@ int main() {
 	cout << "º¯Êı×´Ì¬" << ClearEmpty(seq_list) << endl;
 	cout << "±íÊÇ·ñÎª¿Õ" << ListEmpty(seq_list) << endl;
 	cout << "º¯Êı×´Ì¬" << DestroyList(seq_list) << endl;
+	*/
+	LinkList test;
+	cout << "º¯Êı×´Ì¬" << InitList(test) << endl;
+	cout << "º¯Êı×´Ì¬" << ListInsert(test,1,100) << endl;
+	cout << "º¯Êı×´Ì¬" << ListInsert(test,2,200) << endl;
+	cout << "º¯Êı×´Ì¬" << TraverseList(test) << endl;
+	cout << "º¯Êı×´Ì¬" << ListDelete(test,1) << endl;
+	cout << "º¯Êı×´Ì¬" << TraverseList(test) << endl;
 	return 0;
 }
