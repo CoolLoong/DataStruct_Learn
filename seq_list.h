@@ -23,8 +23,8 @@ int ListLength(SqList L);
 Status GetElem(SqList L, ElemType i, ElemType& e);
 //·µ»ØÖµ´Ó1-length
 int LocateElem(SqList L, ElemType e);
-Status PriorElem(SqList L, ElemType cur_e, ElemType& e);
-Status NextElem(SqList L, ElemType cur_e, ElemType& e);
+Status PriorElem(SqList L, ElemType cur_e, ElemType& pre_e);
+Status NextElem(SqList L, ElemType cur_e, ElemType& next_e);
 Status ListInsert(SqList& L, ElemType i,ElemType e);
 Status ListDelete(SqList& L, ElemType i);
 Status TraverseList(SqList L);
