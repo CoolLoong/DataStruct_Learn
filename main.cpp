@@ -1,5 +1,6 @@
 #include "seq_list.h"
 #include "link_list.h"
+#include "seq_stack.h"
 using namespace std;
 
 void seq_list_test() {
@@ -25,6 +26,7 @@ void seq_list_test() {
 	cout << "函数状态" << ClearEmpty(seq_list) << endl;
 	cout << "表是否为空" << ListEmpty(seq_list) << endl;
 	cout << "函数状态" << DestroyList(seq_list) << endl;
+	cout << "销毁是否成功" << seq_list.elem << endl;
 }
 
 void link_list_test() {
@@ -48,9 +50,29 @@ void link_list_test() {
 	cout << "函数状态" << ClearEmpty(test) << endl;
 	cout << "函数状态" << ListEmpty(test) << endl;
 	cout << "函数状态" << DestroyList(test) << endl;
+	cout << "销毁是否成功" << test << endl;
+}
+
+void seq_stack_test() {
+	SqStack test;
+	int result;
+	cout << "函数状态" << InitStack(test) << endl;
+	for (int j = 1; j <= 10; ++j) {
+		Push(test, j * 10);
+	}
+	cout << "函数状态" << StackTraverse(test) << endl;
+	cout << "函数状态" << Pop(test, result) << endl;
+	cout << "Pop结果" << result << endl;
+	cout << "函数状态" << StackTraverse(test) << endl;
+	cout << "List Length" << StackLength(test) << endl;
+	cout << "GetTop结果" << GetTop(test) << endl;
+	cout << "函数状态" << ClearStack(test) << endl;
+	cout << "函数状态" << StackEmpty(test) << endl;
+	cout << "函数状态" << DestroyStack(test) << endl;
+	cout << "销毁是否成功" << test.base << endl;
 }
 
 int main() {
-	link_list_test();
+	seq_list_test();
 	return 0;
 }

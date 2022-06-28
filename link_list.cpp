@@ -10,11 +10,18 @@ Status InitList(LinkList& L) {
 }
 
 Status DestroyList(LinkList& L) {
-	if (L != nullptr) {
-		delete L;
+	static int len = 1;		  
+	if (L->next != nullptr) { 
+		len++;
+		DestroyList(L->next);
+	}
+	delete L;
+	L = nullptr;
+	len--;
+	if (len == 0) {
+		len = 1;
 		return OK;
 	}
-	else return ERROR;
 }
 
 Status ClearEmpty(LinkList& L) {
@@ -121,6 +128,7 @@ Status ListDelete(LinkList& L, ElemType i) {
 	LinkList q = p->next;
 	p->next = q->next;
 	delete q;
+	q = nullptr;
 	return OK;
 }
 

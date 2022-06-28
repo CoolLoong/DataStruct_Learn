@@ -1,6 +1,6 @@
 #ifndef LINK_LIST
 #define LINK_LIST
-#include"seq_list.h"
+#include "seq_list.h"
 typedef struct LNode {
 	ElemType data;
 	struct LNode* next;

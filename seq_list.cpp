@@ -12,6 +12,7 @@ Status DestroyList(SqList& L) {
 	if (L.elem != nullptr) {
 		L.length = 0;
 		delete[] L.elem;
+		L.elem = nullptr;
 		return OK;
 	}
 	else return ERROR;
