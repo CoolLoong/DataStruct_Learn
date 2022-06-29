@@ -128,11 +128,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="link_list.h" />
+    <ClInclude Include="link_stack.h" />
     <ClInclude Include="seq_list.h" />
     <ClInclude Include="seq_stack.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="link_list.cpp" />
+    <ClCompile Include="link_stack.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="seq_list.cpp" />
     <ClCompile Include="seq_stack.cpp" />

@@ -13,8 +13,8 @@ Status ClearStack(SqStack& S);
 bool StackEmpty(SqStack S);
 int StackLength(SqStack S);
 ElemType GetTop(SqStack S);
-Status Push(SqStack& S,ElemType e);
-Status Pop(SqStack& S,ElemType& e);
+Status Push(SqStack& S, ElemType e);
+Status Pop(SqStack& S, ElemType& e);
 Status StackTraverse(SqStack S);
 #endif
 
