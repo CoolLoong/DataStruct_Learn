@@ -127,9 +127,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="common.h" />
     <ClInclude Include="link_list.h" />
     <ClInclude Include="link_stack.h" />
     <ClInclude Include="seq_list.h" />
+    <ClInclude Include="seq_queue.h" />
     <ClInclude Include="seq_stack.h" />
   </ItemGroup>
   <ItemGroup>
@@ -137,10 +139,8 @@
     <ClCompile Include="link_stack.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="seq_list.cpp" />
+    <ClCompile Include="seq_queue.cpp" />
     <ClCompile Include="seq_stack.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="cpp.hint" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

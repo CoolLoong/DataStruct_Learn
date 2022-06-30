@@ -4,7 +4,8 @@
 
 Status InitList(SqList& L) {
 	L.length = 0;
-	L.elem = new ElemType[MAXSIZE];
+	L.elem = new(std::nothrow) ElemType[MAXSIZE];
+	if (L.elem==nullptr) exit(RAM_OVERFLOW);
 	return OK;
 }
 
@@ -27,16 +28,11 @@ Status ClearEmpty(SqList& L) {
 }
 
 bool ListEmpty(SqList L) {
-	if (L.elem != nullptr) {
-		if (L.length == 0) return true;
-		else return false;
-	}
+	return L.length == 0? true : false;
 }
 
 int ListLength(SqList L) {
-	if (L.elem != nullptr) {
-		return L.length;
-	}
+	return L.length;
 }
 
 Status GetElem(SqList L, ElemType i, ElemType& e) {
@@ -69,6 +65,7 @@ Status PriorElem(SqList L, ElemType cur_e, ElemType& pre_e) {
 				pre_e = L.elem[i - 1];
 			}
 		}
+		return OK;
 	}
 	return ERROR;
 }
@@ -81,35 +78,34 @@ Status NextElem(SqList L, ElemType cur_e, ElemType& next_e) {
 				next_e = L.elem[i + 1];
 			}
 		}
+		return OK;
 	}
 	return ERROR;
 }
 
 Status ListInsert(SqList& L, ElemType i, ElemType e) {
 	if (L.elem != nullptr) {
-		if (i - 1 >= 0 && i - 1 <= L.length) {
-			for (int j = L.length - 1; j >= i - 1; --j) {
-				L.elem[j + 1] = L.elem[j];
-			}
-			L.elem[i - 1] = e;
-			L.length++;
-			return OK;
+		if (L.length == MAXSIZE) return YWM_OVERFLOW;
+		if (i<1 || i > L.length + 1) return ERROR;
+		for (int j = L.length - 1; j >= i - 1; --j) {
+			L.elem[j + 1] = L.elem[j];
 		}
-		else return i <= 0 ? YWM_UNDERFLOW : YWM_OVERFLOW;
+		L.elem[i - 1] = e;
+		L.length++;
+		return OK;
 	}
 	return ERROR;
 }
 
 Status ListDelete(SqList& L, ElemType i) {
 	if (L.elem != nullptr) {
-		if (i - 1 >= 0 && i - 1 <= L.length) {
-			for (int j = i; j <= L.length; ++j) {
-				L.elem[j - 1] = L.elem[j];
-			}
-			L.length--;
-			return OK;
+		if (L.length == 0) return YWM_UNDERFLOW;
+		if (i<1 || i > L.length) return ERROR;
+		for (int j = i; j <= L.length; ++j) {
+			L.elem[j - 1] = L.elem[j];
 		}
-		else return i <= 0 ? YWM_UNDERFLOW : YWM_OVERFLOW;
+		L.length--;
+		return OK;
 	}
 	return ERROR;
 }

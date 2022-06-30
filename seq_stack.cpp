@@ -4,7 +4,8 @@
 
 Status InitStack(SqStack& S){
 	S.stacksize = MAXSIZE;
-	S.base = new ElemType[MAXSIZE];
+	S.base = new(std::nothrow) ElemType[MAXSIZE];
+	if (S.base == nullptr) exit(RAM_OVERFLOW);
 	S.top = S.base;
 	return OK;
 }
@@ -32,21 +33,21 @@ bool StackEmpty(SqStack S){
 	if (S.base != nullptr) {
 		return S.base == S.top ? true : false;
 	}
-	else false;
+	else return false;
 }
 
 int StackLength(SqStack S) {
 	if (S.base != nullptr) {
 		return S.top - S.base;
 	}
-	else ERROR;
+	else return ERROR;
 }
 
 ElemType GetTop(SqStack S){
 	if (!StackEmpty(S)) {
 		return *--S.top;
 	}
-	else ERROR;
+	else return ERROR;
 }
 
 Status Push(SqStack& S, ElemType e){
@@ -55,7 +56,7 @@ Status Push(SqStack& S, ElemType e){
 		*S.top++ = e;
 		return OK;
 	}
-	else ERROR;
+	else return ERROR;
 }
 
 Status Pop(SqStack& S, ElemType& e){
@@ -64,7 +65,7 @@ Status Pop(SqStack& S, ElemType& e){
 		e = *--S.top;
 		return OK;
 	}
-	else ERROR;
+	else return ERROR;
 }
 
 Status StackTraverse(SqStack S){
@@ -75,5 +76,5 @@ Status StackTraverse(SqStack S){
 		}
 		return OK;
 	}
-	else ERROR;
+	else return ERROR;
 }

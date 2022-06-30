@@ -40,7 +40,8 @@ ElemType GetTop(LinkStack S) {
 }
 
 Status Push(LinkStack& S, ElemType e) {
-	LinkStack p = new StackNode;
+	LinkStack p = new(std::nothrow) StackNode;
+	if (p == nullptr) exit(RAM_OVERFLOW);
 	p->data = e;
 	p->next = S;
 	S = p;

@@ -4,7 +4,8 @@
 
 
 Status InitList(LinkList& L) {
-	L = new LNode;
+	L = new(std::nothrow) LNode;
+	if (L == nullptr) exit(RAM_OVERFLOW);
 	L->next = nullptr;
 	return OK;
 }
@@ -22,6 +23,7 @@ Status DestroyList(LinkList& L) {
 		len = 1;
 		return OK;
 	}
+	else return ERROR;
 }
 
 Status ClearEmpty(LinkList& L) {
@@ -82,24 +84,22 @@ Status PriorElem(LinkList L, ElemType cur_e, LinkList& pre_e) {
 			}
 			L = L->next;
 		}
-		return ERROR;
 	}
+	return ERROR;
 }
 
 Status NextElem(LinkList L, ElemType cur_e, LinkList& next_e) {
-	if (L != nullptr) {
-		while (L != nullptr) {
-			if (L->data == cur_e) {
-				if (L->next->next != nullptr) {
-					next_e = L->next;
-					return OK;
-				}
-				else return ERROR;
+	while (L != nullptr) {
+		if (L->data == cur_e) {
+			if (L->next != nullptr) {
+				next_e = L->next;
+				return OK;
 			}
-			L = L->next;
+			else return ERROR;
 		}
-		return ERROR;
+		L = L->next;
 	}
+	return ERROR;
 }
 
 Status ListInsert(LinkList& L, ElemType i, ElemType e) {
@@ -110,7 +110,8 @@ Status ListInsert(LinkList& L, ElemType i, ElemType e) {
 		++j;
 	}
 	if (p == nullptr || j > i - 1) return ERROR;
-	LinkList s = new LNode;
+	LinkList s = new(std::nothrow) LNode;
+	if (s == nullptr) exit(RAM_OVERFLOW);
 	s->data = e;
 	s->next = p->next;
 	p->next = s;

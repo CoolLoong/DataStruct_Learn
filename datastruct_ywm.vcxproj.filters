@@ -27,6 +27,12 @@
     <ClInclude Include="link_stack.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="seq_queue.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="common.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="seq_list.cpp">
@@ -44,8 +50,8 @@
     <ClCompile Include="link_stack.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="cpp.hint" />
+    <ClCompile Include="seq_queue.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

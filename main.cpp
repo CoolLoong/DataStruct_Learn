@@ -2,19 +2,20 @@
 #include "link_list.h"
 #include "seq_stack.h"
 #include "link_stack.h"
+#include "seq_queue.h"
 using namespace std;
 
 void seq_list_test() {
 	SqList seq_list;
 	int next, pre, result;
 	cout << "º¯Êý×´Ì¬" << InitList(seq_list) << endl;
-	for (int j = 1; j <= 10; ++j) {
+	for (int j = 1; j < 10; ++j) {
 		ListInsert(seq_list, j, j * 10);
 	}
 	cout << "º¯Êý×´Ì¬" << TraverseList(seq_list) << endl;
 	cout << "º¯Êý×´Ì¬" << ListDelete(seq_list, 1) << endl;
-	cout << "º¯Êý×´Ì¬" << ListDelete(seq_list, 9) << endl;
 	cout << "º¯Êý×´Ì¬" << ListDelete(seq_list, 8) << endl;
+	cout << "º¯Êý×´Ì¬" << ListDelete(seq_list, 7) << endl;
 	cout << "º¯Êý×´Ì¬" << TraverseList(seq_list) << endl;
 	cout << "º¯Êý×´Ì¬" << NextElem(seq_list, 50, next) << endl;
 	cout << "Ç°Çý½á¹û" << next << endl;
@@ -34,7 +35,7 @@ void link_list_test() {
 	LinkList test, next, pre;
 	int result;
 	cout << "º¯Êý×´Ì¬" << InitList(test) << endl;
-	for (int j = 1; j <= 10; ++j) {
+	for (int j = 1; j < 10; ++j) {
 		ListInsert(test, j, j * 10);
 	}
 	cout << "º¯Êý×´Ì¬" << TraverseList(test) << endl;
@@ -58,7 +59,7 @@ void seq_stack_test() {
 	SqStack test;
 	int result;
 	cout << "º¯Êý×´Ì¬" << InitStack(test) << endl;
-	for (int j = 1; j <= 10; ++j) {
+	for (int j = 1; j < 10; ++j) {
 		Push(test, j * 10);
 	}
 	cout << "º¯Êý×´Ì¬" << StackTraverse(test) << endl;
@@ -77,7 +78,7 @@ void link_stack_test() {
 	LinkStack test;
 	int result;
 	cout << "º¯Êý×´Ì¬" << InitStack(test) << endl;
-	for (int j = 1; j <= 10; ++j) {
+	for (int j = 1; j < 10; ++j) {
 		Push(test, j * 10);
 	}
 	cout << "º¯Êý×´Ì¬" << StackTraverse(test) << endl;
@@ -91,7 +92,42 @@ void link_stack_test() {
 	cout << "Ïú»ÙÊÇ·ñ³É¹¦" << test << endl;
 }
 
+void seq_queue_test() {
+	SqQueue test;
+	int result;
+	cout << "º¯Êý×´Ì¬" << InitQueue(test) << endl;
+	for (int j = 1; j < 10; ++j) {
+		EnQueue(test, j * 10);
+	}
+	cout << "º¯Êý×´Ì¬" << QueueTraverse(test) << endl;
+	cout << "º¯Êý×´Ì¬" << DeQueue(test, result) << endl;
+	cout << "DeQueue½á¹û" << result << endl;
+	cout << "º¯Êý×´Ì¬" << QueueTraverse(test) << endl;
+	cout << "List Length" << QueueLength(test) << endl;
+	cout << "GetTop½á¹û" << GetHead(test) << endl;
+	cout << "º¯Êý×´Ì¬" << ClearQueue(test) << endl;
+	cout << "º¯Êý×´Ì¬" << QueueEmpty(test) << endl;
+	cout << "º¯Êý×´Ì¬" << DestroyQueue(test) << endl;
+	cout << "Ïú»ÙÊÇ·ñ³É¹¦" << test.base << endl;
+}
+
 int main() {
-	link_stack_test();
+	int opt;
+	cout << "ÇëÑ¡Ôñ²âÊÔÏî:" << endl
+		<< "1.ÏßÐÔ±í(Ë³Ðò)" << endl
+		<< "2.ÏßÐÔ±í(Á´Ê½)" << endl
+		<< "3.Õ»(Ë³Ðò)" << endl
+		<< "4.Õ»(Á´Ê½)" << endl
+		<< "5.¶ÓÁÐ(Ë³Ðò)" << endl;
+	while (cin >> opt) {
+		switch (opt) {
+		case 1: seq_list_test(); break;
+		case 2:link_list_test(); break;
+		case 3:seq_stack_test(); break;
+		case 4:link_stack_test(); break;
+		case 5:seq_queue_test(); break;
+		default:cout << "ÊäÈë´íÎó,ÇëÖØÐÂÊäÈë";
+		}
+	}
 	return 0;
 }
