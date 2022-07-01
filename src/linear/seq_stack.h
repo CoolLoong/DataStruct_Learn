@@ -1,6 +1,6 @@
 #ifndef SEQ_STACK
 #define SEQ_STACK
-#include "common.h"
+#include "../common.h"
 typedef struct {
 	ElemType* base;//储存栈中的元素(一段连续的存储空间)base指向空间基地址，也就是栈底
 	ElemType* top;//指向栈顶,当*top==*base时栈空,为stack_size-1表示满栈

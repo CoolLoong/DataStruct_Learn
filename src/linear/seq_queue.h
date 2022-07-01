@@ -1,6 +1,6 @@
 #ifndef SEQ_QUEUE
 #define SEQ_QUEUE
-#include "common.h"
+#include "../common.h"
 //顺序队列,使用循环队列实现
 typedef struct {
 	ElemType* base; //储存队列中的元素,base指向空间基地址,有效存储空间为MAXSIZE-1

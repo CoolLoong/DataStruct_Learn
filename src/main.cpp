@@ -1,8 +1,10 @@
-#include "seq_list.h"
-#include "link_list.h"
-#include "seq_stack.h"
-#include "link_stack.h"
-#include "seq_queue.h"
+#include "linear/seq_list.h"
+#include "linear/link_list.h"
+#include "linear/seq_stack.h"
+#include "linear/link_stack.h"
+#include "linear/seq_queue.h"
+#include "linear/link_queue.h"
+
 using namespace std;
 
 void seq_list_test() {
@@ -111,6 +113,25 @@ void seq_queue_test() {
 	cout << "销毁是否成功" << test.base << endl;
 }
 
+void link_queue_test() {
+	LinkQueue test;
+	int result;
+	cout << "函数状态" << InitQueue(test) << endl;
+	for (int j = 1; j < 10; ++j) {
+		EnQueue(test, j * 10);
+	}
+	cout << "函数状态" << QueueTraverse(test) << endl;
+	cout << "函数状态" << DeQueue(test, result) << endl;
+	cout << "DeQueue结果" << result << endl;
+	cout << "函数状态" << QueueTraverse(test) << endl;
+	cout << "List Length" << QueueLength(test) << endl;
+	cout << "GetTop结果" << GetHead(test) << endl;
+	cout << "函数状态" << ClearQueue(test) << endl;
+	cout << "函数状态" << QueueEmpty(test) << endl;
+	cout << "函数状态" << DestroyQueue(test) << endl;
+	cout << "销毁是否成功" << test.front << endl;
+}
+
 int main() {
 	int opt;
 	cout << "请选择测试项:" << endl
@@ -118,7 +139,8 @@ int main() {
 		<< "2.线性表(链式)" << endl
 		<< "3.栈(顺序)" << endl
 		<< "4.栈(链式)" << endl
-		<< "5.队列(顺序)" << endl;
+		<< "5.队列(顺序)" << endl
+		<< "6.队列(链式)" << endl;
 	while (cin >> opt) {
 		switch (opt) {
 		case 1: seq_list_test(); break;
@@ -126,6 +148,7 @@ int main() {
 		case 3:seq_stack_test(); break;
 		case 4:link_stack_test(); break;
 		case 5:seq_queue_test(); break;
+		case 6:link_queue_test(); break;
 		default:cout << "输入错误,请重新输入";
 		}
 	}

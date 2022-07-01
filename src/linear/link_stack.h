@@ -1,6 +1,6 @@
 #ifndef LINK_STACK
 #define LINK_STACK
-#include "common.h"
+#include "../common.h"
 typedef struct StackNode {
 	ElemType data;
 	struct StackNode* next;

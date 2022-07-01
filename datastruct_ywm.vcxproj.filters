@@ -15,43 +15,56 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\seq_list.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="src\link_list.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="src\seq_stack.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="src\link_stack.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="src\seq_queue.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="src\common.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\linear\link_list.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\linear\link_stack.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\linear\seq_list.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\linear\seq_queue.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\linear\seq_stack.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\linear\link_queue.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\seq_list.cpp">
+    <ClCompile Include="src\linear\link_list.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\linear\link_queue.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\linear\link_stack.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="src\main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="src\link_list.cpp">
+    <ClCompile Include="src\linear\seq_list.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="src\seq_stack.cpp">
+    <ClCompile Include="src\linear\seq_queue.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="src\link_stack.cpp">
+    <ClCompile Include="src\linear\seq_stack.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="src\seq_queue.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="LICENSE.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include=".gitignore" />
+    <None Include=".gitattributes" />
   </ItemGroup>
 </Project>

@@ -1,6 +1,6 @@
 #ifndef LINK_LIST
 #define LINK_LIST
-#include "common.h"
+#include "../common.h"
 typedef struct LNode {
 	ElemType data;
 	struct LNode* next;

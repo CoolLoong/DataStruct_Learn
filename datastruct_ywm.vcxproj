@@ -18,6 +18,31 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\common.h" />
+    <ClInclude Include="src\linear\link_list.h" />
+    <ClInclude Include="src\linear\link_queue.h" />
+    <ClInclude Include="src\linear\link_stack.h" />
+    <ClInclude Include="src\linear\seq_list.h" />
+    <ClInclude Include="src\linear\seq_queue.h" />
+    <ClInclude Include="src\linear\seq_stack.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\linear\link_list.cpp" />
+    <ClCompile Include="src\linear\link_queue.cpp" />
+    <ClCompile Include="src\linear\link_stack.cpp" />
+    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\linear\seq_list.cpp" />
+    <ClCompile Include="src\linear\seq_queue.cpp" />
+    <ClCompile Include="src\linear\seq_stack.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="LICENSE.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include=".gitattributes" />
+    <None Include=".gitignore" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
@@ -126,22 +151,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClInclude Include="src\common.h" />
-    <ClInclude Include="src\link_list.h" />
-    <ClInclude Include="src\link_stack.h" />
-    <ClInclude Include="src\seq_list.h" />
-    <ClInclude Include="src\seq_queue.h" />
-    <ClInclude Include="src\seq_stack.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="src\link_list.cpp" />
-    <ClCompile Include="src\link_stack.cpp" />
-    <ClCompile Include="src\main.cpp" />
-    <ClCompile Include="src\seq_list.cpp" />
-    <ClCompile Include="src\seq_queue.cpp" />
-    <ClCompile Include="src\seq_stack.cpp" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

@@ -1,6 +1,6 @@
 #ifndef SEQ_LIST
 #define SEQ_LIST
-#include "common.h"
+#include "../common.h"
 typedef struct{
 	ElemType* elem;//存储空间的基地址
 	int length;//线性表长度
