@@ -11,7 +11,7 @@ void seq_list_test() {
 	SqList seq_list;
 	int next, pre, result;
 	cout << "º¯Êı×´Ì¬" << InitList(seq_list) << endl;
-	for (int j = 1; j < 10; ++j) {
+	for (int j = 1; j <= 10; ++j) {
 		ListInsert(seq_list, j, j * 10);
 	}
 	cout << "º¯Êı×´Ì¬" << TraverseList(seq_list) << endl;
@@ -37,14 +37,14 @@ void link_list_test() {
 	LinkList test, next, pre;
 	int result;
 	cout << "º¯Êı×´Ì¬" << InitList(test) << endl;
-	for (int j = 1; j < 10; ++j) {
+	for (int j = 1; j <= 10; ++j) {
 		ListInsert(test, j, j * 10);
 	}
 	cout << "º¯Êı×´Ì¬" << TraverseList(test) << endl;
 	cout << "º¯Êı×´Ì¬" << ListDelete(test, 1) << endl;
 	cout << "º¯Êı×´Ì¬" << TraverseList(test) << endl;
 	cout << "List Length" << ListLength(test) << endl;
-	cout << "º¯Êı×´Ì¬" << GetElem(test, 1, result) << endl;
+	cout << "º¯Êı×´Ì¬" << GetElem(test, 9, result) << endl;
 	cout << "GetElem½á¹û" << result << endl;
 	cout << "300µÄÎ»ÖÃÔÚ" << LocateElem(test, 30) << endl;
 	cout << "º¯Êı×´Ì¬" << PriorElem(test, 40, pre) << endl;
