@@ -5,7 +5,7 @@
 typedef struct {
 	ElemType* base; //储存队列中的元素,base指向空间基地址,有效存储空间为MAXSIZE-1
 	int front; //头指针始终指向队头元素
-	int rear; //尾指针始终指向队尾元素的下一个
+	int rear; //尾指针始终指向队尾元素的下一个 为了判别循环队列是否为满,保留rear所指向的存储空间不用
 }SqQueue;
 
 Status InitQueue(SqQueue& Q);

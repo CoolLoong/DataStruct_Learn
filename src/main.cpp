@@ -61,7 +61,7 @@ void seq_stack_test() {
 	SqStack test;
 	int result;
 	cout << "º¯Êı×´Ì¬" << InitStack(test) << endl;
-	for (int j = 1; j < 10; ++j) {
+	for (int j = 1; j <= 10; ++j) {
 		Push(test, j * 10);
 	}
 	cout << "º¯Êı×´Ì¬" << StackTraverse(test) << endl;

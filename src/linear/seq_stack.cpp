@@ -38,7 +38,7 @@ bool StackEmpty(SqStack S){
 
 int StackLength(SqStack S) {
 	if (S.base != nullptr) {
-		return S.top - S.base;//由于分配的是连续的存储空间,所以栈顶指针与栈底指针的地址差值等于栈的长度
+		return (int)(S.top - S.base);//由于分配的是连续的存储空间,所以栈顶指针与栈底指针的地址差值等于栈的长度
 	}
 	else return ERROR;
 }

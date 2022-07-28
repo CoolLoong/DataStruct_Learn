@@ -1,5 +1,6 @@
 #ifndef SEQ_LIST
 #include "seq_list.h"
+#include <malloc.h>
 #endif
 
 Status InitList(SqList& L) {
@@ -87,8 +88,8 @@ Status ListInsert(SqList& L, ElemType i, ElemType e) {
 	if (L.elem != nullptr) {
 		if (L.length == MAXSIZE) return YWM_OVERFLOW;//满了就不能插入元素了
 		if (i<1 || i > L.length + 1) return ERROR;
-		for (int j = L.length - 1; j >= i - 1; --j) {//从后往前遍历到i-1
-			L.elem[j + 1] = L.elem[j];//每个元素都后移,将i-1的位置空出来
+		for (int j = L.length - 1; j > i - 1; --j) {//从后往前遍历到i-1
+			L.elem[j] = L.elem[j-1];//每个元素都后移,将i-1的位置空出来
 		}
 		L.elem[i - 1] = e;//插入到该位置
 		L.length++;
@@ -104,7 +105,7 @@ Status ListDelete(SqList& L, ElemType i) {
 		for (int j = i; j <= L.length-1; ++j) {//从i遍历到列表结尾
 			L.elem[j - 1] = L.elem[j];//每个元素都左移
 		}
-		L.elem[L.length] = -1;//由于左移 最后一个元素置-1逻辑删除
+		L.elem[L.length-1] = -1;//由于左移 最后一个元素置-1逻辑删除
 		L.length--;
 		return OK;
 	}
